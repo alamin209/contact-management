@@ -1,0 +1,137 @@
+<div>
+  <h1 style="padding-left: 30px">Contacts</h1>
+</div>
+<div
+  *ngIf="dataSource.length"
+  fxLayout
+  fxLayoutAlign="space-between start"
+  style="background-color: #f8f9fc"
+>
+  <div fxFlex="45%" style="background-color: grey">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="title">
+        <mat-cell
+          *matCellDef="let row"
+          data-label="title"
+          fxLayout
+          fxLayoutAlign="flex-start start"
+          flexGap
+        >
+          <div fxflex="15%" fxLayout="column">
+            <img
+              src="{{ row?.avatar }}"
+              alt=""
+              style="width: 50px; border-radius: 30%; margin-right: 10px"
+            />
+            <!-- <div class="status" style="margin-top: 40px"></div> -->
+          </div>
+          <div fxflex>
+            <b>{{ row?.first_name }} {{ row?.last_name }}</b> <br />
+            <span style="color: #8083a3">{{ row?.job_title }}</span>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-cell *matCellDef="let row" mat-cell>
+          <button mat-button>
+            <mat-icon>message</mat-icon>
+          </button>
+          <button mat-button>
+            <mat-icon>phone</mat-icon>
+          </button>
+          <button mat-button>
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> -->
+      <mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        [ngClass]="{ highlight: selectedRowIndex == row.id }"
+        (click)="showDetails(row)"
+      ></mat-row>
+    </mat-table>
+  </div>
+  <div fxFlex style="padding: 2rem">
+    <table class="details-table" *ngIf="detailsData?.count">
+      <tr>
+        <th></th>
+        <td fxLayout>
+          <div fxflex="15%">
+            <img
+              src="{{ detailsData?.avatar }}"
+              alt=""
+              style="width: 150px; border-radius: 30%; margin-right: 10px"
+            />
+            <!-- <div class="status" style="margin-top: 40px"></div> -->
+          </div>
+          <div fxflex fxLayout="column" style="line-height: 1.75rem">
+            <b style="font-size: 22px"
+              >{{ detailsData?.first_name }} {{ detailsData?.last_name }}</b
+            >
+            <span style="color: #8083a3; font-size: 18px">{{
+              detailsData?.job_title
+            }}</span>
+
+            <button
+              color="primary"
+              style="
+                width: 100px;
+                height: 40px;
+                color: white;
+                background-color: #6b59cc;
+                border-radius: 10px;
+                padding: 0;
+              "
+            >
+              Message
+            </button>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Bio</th>
+        <td>{{ detailsData?.job_title }}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>
+          <div *ngFor="let item of detailsData.emails; let i = index">
+            <div fxLayout fxLayoutAlign="space-between center">
+              <span>{{ item.email_address }} </span>
+              <span *ngIf="i == 0">
+                <mat-chip-list aria-label="Fish selection">
+                  <mat-chip>Primary</mat-chip>
+                </mat-chip-list>
+              </span>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Dial</th>
+        <td>{{ detailsData?.messanger }}</td>
+      </tr>
+      <tr>
+        <th>Meeting</th>
+        <td>{{ detailsData?.meeting_url }}</td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td>
+          <div fxLayout fxLayoutAlign="space-between center">
+            <span>{{ detailsData?.primary_phone }} </span>
+            <span>
+              <mat-chip-list aria-label="Fish selection">
+                <mat-chip>Primary</mat-chip>
+              </mat-chip-list>
+            </span>
+          </div>
+          {{ detailsData?.secondary_phone }}
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

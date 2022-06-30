@@ -1,0 +1,96 @@
+/* ================= TOP-QUERY-FOOTER ========================== */
+.query_bg {
+  background-color: #ec1f26;
+}
+.query_sec {
+  margin-top: 1rem;
+}
+.query_heading h4 {
+  color: #ffffff;
+  font-size: 42px;
+}
+.query_heading p {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.query_btn:focus {
+  box-shadow: none;
+}
+.query_office_heading h4 {
+  font-size: 25px;
+  color: #ffffff;
+}
+.office_contact {
+  display: flex;
+}
+.office_contact_icon {
+  color: #ffffff;
+  font-size: 18px;
+}
+.office_contact ul {
+  list-style-type: none;
+  padding-left: 2.2rem;
+}
+.office_contact ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+button {
+  background: #ffff;
+  border: 1px solid #048738;
+  border-radius: 5px;
+  line-height: 1;
+  margin: 0.5em;
+  font-size: 1em;
+  padding: 0.9em 3.8em;
+  color: #048738;
+  font-weight: 500;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #048738;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+.query_btn:hover,
+.query_btn:focus {
+  box-shadow: inset 200px 0 0 0 #048738;
+  color: #ffffff;
+}
+/* ================= MAIN-FOOTER ========================== */
+.main_footer {
+  position: relative;
+  background-color: #222222;
+}
+.footer_logo {
+  margin: 0rem 0rem 1rem 0rem;
+}
+.footer_logo img {
+  padding: 0.5rem;
+  width: 250px;
+}
+.footer_heading h5 {
+  position: relative;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 23px;
+  padding: 1rem 0rem 1rem 0rem;
+  border-bottom: 2px solid #fff;
+  display: inline-block;
+  margin: 0rem 1rem 2rem 0rem;
+}
+.footer_about {
+  list-style-type: none;
+  padding: 0;
+}
+.footer_about li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer_about li a:hover {
+  color: #ec1f26;
+}
